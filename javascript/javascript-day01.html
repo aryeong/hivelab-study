@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript-day01</title>
+</head>
+<body>
+    <script>
+        var intNum = 34;
+        var singleStr = 'volvo';
+        var bollVar = true;
+        var emptyVar;
+        var nullVar = null;
+        console.log(typeof nullVar); //데이터타입 중요
+
+        var objA = {
+            val : 40
+        }
+        var objB = objA; //objb가 objA참조
+
+        objB.val = 50; //변경하면 원본값도 변경됨
+        console.log(objA.val); //출력값50
+        console.log(objB.val); //출력값50
+ 
+        var one = 'good' + 'time';
+        var two = 'good' + 3;
+        var three = 3 + 4;
+        console.log(one);
+        console.log(two); //문자열이 있으면 연결해주는 용도
+        console.log(three); //숫자만있음 산술
+
+        //!(느낌표)는 null을 나타냄
+
+        //증감연산자
+        var time = 0;
+        time++;
+        console.log(time);
+
+        //삼항연산자
+        var varia = (3<9) ? true : flase;
+        console.log(varia);
+
+        var foo = {
+            neme: 'foo',
+            age : 40
+        }
+        console.log(foo.toString()); // toString은 자스 기본적으로 들어가있는 객체
+        console.dir(foo); //directory타입으로 뜨는것
+        console.log(Object.prototype);
+    </script>
+</body>
+</html>
