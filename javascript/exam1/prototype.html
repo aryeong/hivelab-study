@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>prototype</title>
+<link rel="stylesheet" href="common.css" />
+<style>
+	#container ul { max-width: 1000px; width: 100%; margin: 100px auto; }
+	.prototype pre {white-space: pre-line;}
+</style>
+</head>
+<body>
+<!-- wrapper [s] -->
+<div id="wrapper">
+	<!-- header [s] -->
+	<div id="header">
+	</div>
+	<!-- header [e] -->
+	<hr />
+	<!-- container [s] -->
+	<div id="container">
+		<ul>
+			<li class="prototype">
+				<strong>Array.join()</strong>
+				<p>배열의 모든 요소를 연결해 하나의 문자열로 만듦</p>
+				<pre>
+					<code>
+						var ex1Array = ['apple', 'orange', 'grape'];
+						var myVar1 = ex1Array.join(); //myVar1에 'apple,orange,grape' 대입
+						var myVar2 = ex1Array.join(''); //myVar2에 'appleorangegrape' 대입
+						var myVar3 = ex1Array.join(', '); //myVar3에 'apple, orange, grape' 대입
+						var myVar4 = ex1Array.join('-'); //myVar4에 'apple-orange-grape' 대입
+						var myVar5 = ex1Array.join('+'); //myVar5에 'apple+orange+grape' 대입
+					</code>
+				</pre>
+				<script>
+					var ex1Array = ['apple', 'orange', 'grape'];
+					var myVar1 = ex1Array.join();
+					var myVar2 = ex1Array.join('');
+					var myVar3 = ex1Array.join(', ');
+					var myVar4 = ex1Array.join('-'); 
+					var myVar5 = ex1Array.join('+');
+					console.log(myVar1);
+					console.log(myVar2);
+					console.log(myVar3);
+					console.log(myVar4);
+					console.log(myVar5);
+				</script>
+			</li>
+			<li class="prototype">
+				<strong>Array.reverse()</strong>
+				<p>배열의 순서 반전. 첫 번째 요소는 마지막 요소, 마지막 요소는 첫 번째 요소로 됨</p>
+				<pre>
+					<code>
+						var ex2Array = ['one', 'two', 'three'];
+						console.log(ex2Array); //["one", "two", "three"]
+
+						ex2Array.reverse();
+						console.log(ex2Array); //["three", "two", "one"]
+					</code>
+				</pre>
+				<script>
+					var ex2Array = ['one', 'two', 'three'];
+					console.log(ex2Array);
+
+					ex2Array.reverse();
+					console.log(ex2Array);
+				</script>
+			</li>
+			<li class="prototype">
+				<strong>Array.sort()</strong>
+				<p>배열의 요소를 적절한 위치에 정렬한 후 그 배열을 반환.</p>
+				<pre>
+					<code>
+						var day = ['sun', 'tue', 'mon', 'sat', 'wed', 'thu', 'fri'];
+						day.sort();
+						console.log(day); //["fri", "mon", "sat", "sun", "thu", "tue", "wed"]
+					</code>
+				</pre>
+				<script>
+					var day = ['sun', 'tue', 'mon', 'sat', 'wed', 'thu', 'fri'];
+					day.sort();
+					console.log(day);
+
+					var ap = ['b', 'g', 'x', 'z', 'a', 's'];
+					ap.sort();
+					console.log(ap);
+
+					var num = ['100', '3', '777', '0', '1111', '58', '59'];
+					num.sort();
+					console.log(num);
+				</script>
+			</li>
+			<li class="prototype">
+				<strong>Array.concat()</strong>
+				<p>인자로 주어진 배열이나 값들을 기존 배열에 합쳐서 새 배열을 반환</p>
+				<pre>
+					<code>
+						var array1 = ['a', 'b', 'c'];
+						var array2 = ['d', 'e', 'f'];
+						var array3 = array1.concat(array2);
+						console.log(array3); //["a", "b", "c", "d", "e", "f"]
+					</code>
+				</pre>
+				<script>
+					var array1 = ['a', 'b', 'c'];
+					var array2 = ['d', 'e', 'f'];
+					var array3 = array1.concat(array2);
+					console.log(array3);
+				</script>
+			</li>
+			<li class="prototype">
+				<strong>Array.slice()</strong>
+				<p>배열의 begin부터 end까지(end미포함)의 배열 내용 반환. 원본 배열은 바뀌지 않음</p>
+				<pre>
+					<code>
+						var fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango']
+						var citrus = fruits.slice(1, 3)
+						console.log(fruits); //["Banana", "Orange", "Lemon", "Apple", "Mango"]
+						console.log(citrus); //["Orange","Lemon"]
+					</code>
+				</pre>
+				<script>
+					var fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango']
+					var citrus = fruits.slice(1, 3)
+					console.log(fruits);
+					console.log(citrus);
+
+					
+				</script>
+			</li>
+			<li class="prototype">
+				<strong>Array.splice()</strong>
+				<p>배열의 기존 요소를 삭제 또는 교체하거나 새 요소를 추가하여 배열의 내용 변경</p>
+				<pre>
+					<code>
+						array.splice(start[, deleteCount[, item1[, item2[, ...]]]])
+
+						ex1) 하나도 제거하지 않고, 2번 인덱스에 "drum" 추가
+						var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+						var removed = myFish.splice(2, 0, 'drum');
+						console.log(myFish); //["angel", "clown", "drum", "mandarin", "sturgeon"]
+						console.log(removed); //[]
+
+						ex2) 3번 인덱스에서 한 개 요소 제거
+						var myFish = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon'];
+						var removed = myFish.splice(3, 1);
+						console.log(removed); //["mandarin"]
+						console.log(myFish); //["angel", "clown", "drum", "sturgeon"]
+
+						ex3) 0번 인덱스에서 두 개 요소 제거하고 "parrot", "anemone", "blue" 추가
+						var myFish = ['angel', 'clown', 'trumpet', 'sturgeon'];
+						var removed = myFish.splice(0, 2, 'parrot', 'anemone', 'blue');
+						console.log(myFish); //["parrot", "anemone", "blue", "trumpet", "sturgeon"]
+						console.log(removed); //["angel", "clown"]
+
+						ex4) 2번 인덱스에서 두 개 요소 제거
+						var myFish = ['parrot', 'anemone', 'blue', 'trumpet', 'sturgeon'];
+						var removed = myFish.splice(myFish.length - 3, 2);
+						console.log(myFish); //["parrot", "anemone", "sturgeon"]
+						console.log(removed); //["blue", "trumpet"]
+
+						ex5) -2번 인덱스에서 한 개 요소 제거
+						var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+						var removed = myFish.splice(-2, 1);
+						console.log(myFish); //["angel", "clown", "sturgeon"]
+						console.log(removed); //["mandarin"]
+
+						ex6) 2번 인덱스를 포함해서 이후의 모든 요소 제거
+						var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+						var removed = myFish.splice(2);
+						console.log(myFish); //["angel", "clown"]
+						console.log(removed); //["mandarin", "sturgeon"]
+					</code>
+				</pre>
+				<script>
+					var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+					var removed = myFish.splice(2, 0, 'drum');
+					console.log(myFish);
+					console.log(removed);
+
+					var myFish = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon'];
+					var removed = myFish.splice(3, 1);
+					console.log(removed);
+					console.log(myFish);
+
+					var myFish = ['angel', 'clown', 'trumpet', 'sturgeon'];
+					var removed = myFish.splice(0, 2, 'parrot', 'anemone', 'blue');
+					console.log(myFish);
+					console.log(removed);
+
+					var myFish = ['parrot', 'anemone', 'blue', 'trumpet', 'sturgeon'];
+					var removed = myFish.splice(myFish.length - 3, 2);
+					console.log(myFish);
+					console.log(removed);
+
+					var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+					var removed = myFish.splice(-2, 1);
+					console.log(myFish);
+					console.log(removed);
+
+					var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+					var removed = myFish.splice(2);
+					console.log(myFish);
+					console.log(removed);
+				</script>
+			</li>
+			<li class="prototype">
+				<strong>Array.push()</strong>
+				<p></p>
+				<pre>
+					<code>
+						
+					</code>
+				</pre>
+				<script>
+					
+				</script>
+			</li>
+			<li class="prototype">
+				<strong>Array.pop()</strong>
+				<p></p>
+				<pre>
+					<code>
+						
+					</code>
+				</pre>
+				<script>
+					
+				</script>
+			</li>
+			<li class="prototype">
+				<strong>Array.shift()</strong>
+				<p></p>
+				<pre>
+					<code>
+						
+					</code>
+				</pre>
+				<script>
+					
+				</script>
+			</li>
+			<li class="prototype">
+				<strong>Array.unshift()</strong>
+				<p></p>
+				<pre>
+					<code>
+						
+					</code>
+				</pre>
+				<script>
+					
+				</script>
+			</li>
+			<li class="prototype">
+				<strong>Array.toString()</strong>
+				<p></p>
+				<pre>
+					<code>
+						
+					</code>
+				</pre>
+				<script>
+					
+				</script>
+			</li>
+			<li class="prototype">
+				<strong>Array.indexOf()</strong>
+				<p></p>
+				<pre>
+					<code>
+						
+					</code>
+				</pre>
+				<script>
+					
+				</script>
+			</li>
+		</ul>
+	</div>
+	<!-- container [e] -->
+	<hr />
+	<!-- footer [s] -->
+	<div id="footer">
+	</div>
+	<!-- footer [e] -->
+</div>
+<!-- wrapper [e] -->
+</body>
+</html>
