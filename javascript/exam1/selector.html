@@ -41,7 +41,8 @@ window.onload = function(){
 	};
 
 	examObj2.getElementsByTagName('button')[0].onclick = function(){
-		var examChild = examObj2.getElementsByClassName('exam_q')[0].getElementsByTagName('span');
+		//var examChild = examObj2.getElementsByClassName('exam_q')[0].getElementsByTagName('span');
+		var examChild = examObj2.getElementsByClassName('exam_q')[0].querySelectorAll('span');
 		for(var i = 0; i < examChild.length; i++){
 			examChild[i].style.backgroundColor = 'yellow';
 		}
