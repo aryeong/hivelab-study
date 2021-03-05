@@ -47,6 +47,54 @@ window.onload = function(){
 			examChild[i].style.backgroundColor = 'yellow';
 		}
 	}
+
+	examObj3.getElementsByTagName('button')[0].onclick = function(){
+		var examChild = examObj3.getElementsByClassName('exam_q')[0].querySelectorAll('em');
+		//console.log(examChild);
+		var examChild2 = examChild[0]
+		//console.log(examChild2);
+		var examChild3 = examChild2.getElementsByTagName('span');
+		//console.log(examChild3);
+		for(var i = 0; i < examChild3.length; i++){
+			examChild3[i].style.backgroundColor = 'yellow';
+		}
+	}
+
+	examObj4.getElementsByTagName('button')[0].onclick = function(){
+		var examChild = examObj4.getElementsByClassName('exam_q')[0].querySelector(':scope > span');
+		//console.log(examChild);
+		examChild.style.backgroundColor = 'yellow';
+	}
+
+	examObj5.getElementsByTagName('button')[0].onclick = function(){
+		var examChild = examObj5.getElementsByClassName('exam_q')[0].querySelector('div + p');
+		//console.log(examChild);
+		examChild.style.backgroundColor = 'yellow';
+	}
+
+	examObj6.getElementsByTagName('button')[0].onclick = function(){
+		var examChild = examObj6.getElementsByClassName('exam_q')[0].querySelectorAll('div ~ span');
+		//console.log(examChild);
+		for(var i = 0; i < examChild.length; i++){
+			examChild[i].style.backgroundColor = 'yellow';
+		}
+	}
+
+	examObj7.getElementsByTagName('button')[0].onclick = function(){
+		var examChild = examObj7.getElementsByClassName('exam_q')[0].getElementsByClassName('active');
+		//console.log(examChild);
+		for(var i = 0; i < examChild.length; i++){
+			examChild[i].style.backgroundColor = 'yellow';
+		}
+	}
+	
+	examObj8.getElementsByTagName('button')[0].onclick = function(){
+		var examChild = examObj8.getElementsByClassName('exam_q')[0].querySelectorAll('#active');
+		//console.log(examChild);
+		for(var i = 0; i < examChild.length; i++){
+			examChild[i].style.backgroundColor = 'yellow';
+		}
+	}
 }
 </script>
 </head>
@@ -121,6 +169,8 @@ window.onload = function(){
 				<div>div</div>
 				<p>p</p>
 				<span>span</span>
+				<span>span</span>
+				<span>span</span>
 				<em>em<span>span</span></em>
 			</div>
 			<button type="button">view</button>
@@ -145,7 +195,7 @@ window.onload = function(){
 				<div class="active">div</div>
 				<p class="active">p</p>
 				<span class="active">span</span>
-				<span>span</span>
+				<span id="active">span</span>
 			</div>
 			<button type="button">view</button>
 			<p>Tip) $("E#I") E의 생략은 *#I와 동일함.</p>
