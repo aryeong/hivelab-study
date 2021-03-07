@@ -4,7 +4,13 @@
 <meta charset="utf-8">
 <title>exam</title>
 <link rel="stylesheet" href="common.css" />
-<!-- <script src="http://code.jquery.com/jquery-latest.js"></script> jQuery library-->
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/github.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+	pre code { font-family: Consolas, Monaco, monospace; }
+</style>
 <script>
 // jQuery default
 // $(document).ready(function(){
@@ -14,24 +20,61 @@
 
 // });
 
-// jQuery code
-// $(function(){
-// 	var examObj1 = $('.exam_wrap:eq(0)');
-// 	examObj1.find('button').on('click', function(){
-// 		examObj1.find('.exam_q *').css('background','yellow');
-// 	});
-// });
+//jQuery code
+$(function(){
+	var examObj1 = $('.exam_wrap:eq(0)'),
+		examObj2 = $('.exam_wrap:eq(1)'),
+		examObj3 = $('.exam_wrap:eq(2)'),
+		examObj4 = $('.exam_wrap:eq(3)'),
+		examObj5 = $('.exam_wrap:eq(4)'),
+		examObj6 = $('.exam_wrap:eq(5)'),
+		examObj7 = $('.exam_wrap:eq(6)'),
+		examObj8 = $('.exam_wrap:eq(7)');
+
+	examObj1.find('button').on('click', function(){
+		examObj1.find('.exam_q *').css('background','yellow');
+	});
+
+	examObj2.find('button').on('click', function(){
+		examObj2.find('.exam_q span').css('background','yellow');
+	});
+
+	examObj3.find('button').on('click', function(){
+		examObj3.find('.exam_q em span').css('background','yellow');
+	});
+
+	examObj4.find('button').on('click', function(){
+		examObj4.find('.exam_q > span').css('background','yellow');
+	});
+
+	examObj5.find('button').on('click', function(){
+		examObj5.find('.exam_q div + p').css('background','yellow');
+	});
+
+	examObj6.find('button').on('click', function(){
+		examObj6.find('.exam_q div ~ span').css('background','yellow');
+	});
+
+	examObj7.find('button').on('click', function(){
+		examObj7.find('.exam_q .active').css('background','yellow');
+	});
+
+	examObj8.find('button').on('click', function(){
+		examObj8.find('.exam_q #active').css('background','yellow');
+	});
+});
 
 // javascript code
+/*
 window.onload = function(){
-	var examObj1 = document.getElementsByClassName('exam_wrap')[0];
-	var examObj2 = document.getElementsByClassName('exam_wrap')[1];
-	var examObj3 = document.getElementsByClassName('exam_wrap')[2];
-	var examObj4 = document.getElementsByClassName('exam_wrap')[3];
-	var examObj5 = document.getElementsByClassName('exam_wrap')[4];
-	var examObj6 = document.getElementsByClassName('exam_wrap')[5];
-	var examObj7 = document.getElementsByClassName('exam_wrap')[6];
-	var examObj8 = document.getElementsByClassName('exam_wrap')[7];
+	var examObj1 = document.getElementsByClassName('exam_wrap')[0],
+		examObj2 = document.getElementsByClassName('exam_wrap')[1],
+		examObj3 = document.getElementsByClassName('exam_wrap')[2],
+		examObj4 = document.getElementsByClassName('exam_wrap')[3],
+		examObj5 = document.getElementsByClassName('exam_wrap')[4],
+		examObj6 = document.getElementsByClassName('exam_wrap')[5],
+		examObj7 = document.getElementsByClassName('exam_wrap')[6],
+		examObj8 = document.getElementsByClassName('exam_wrap')[7];
 
 	examObj1.getElementsByTagName('button')[0].onclick = function(){
 		var examChild = examObj1.getElementsByClassName('exam_q')[0].querySelectorAll('*');
@@ -49,14 +92,10 @@ window.onload = function(){
 	}
 
 	examObj3.getElementsByTagName('button')[0].onclick = function(){
-		var examChild = examObj3.getElementsByClassName('exam_q')[0].querySelectorAll('em');
+		var examChild = examObj3.getElementsByClassName('exam_q')[0].querySelectorAll('em')[0].querySelectorAll('span');
 		//console.log(examChild);
-		var examChild2 = examChild[0]
-		//console.log(examChild2);
-		var examChild3 = examChild2.getElementsByTagName('span');
-		//console.log(examChild3);
-		for(var i = 0; i < examChild3.length; i++){
-			examChild3[i].style.backgroundColor = 'yellow';
+		for(var i = 0; i < examChild.length; i++){
+			examChild[i].style.backgroundColor = 'yellow';
 		}
 	}
 
@@ -81,7 +120,8 @@ window.onload = function(){
 	}
 
 	examObj7.getElementsByTagName('button')[0].onclick = function(){
-		var examChild = examObj7.getElementsByClassName('exam_q')[0].getElementsByClassName('active');
+		//var examChild = examObj7.getElementsByClassName('exam_q')[0].getElementsByClassName('active');
+		var examChild = examObj7.getElementsByClassName('exam_q')[0].querySelectorAll('.active');
 		//console.log(examChild);
 		for(var i = 0; i < examChild.length; i++){
 			examChild[i].style.backgroundColor = 'yellow';
@@ -96,6 +136,7 @@ window.onload = function(){
 		}
 	}
 }
+*/
 </script>
 </head>
 <body>
@@ -119,6 +160,22 @@ window.onload = function(){
 			<button type="button">view</button>
 			<p>Tip) $("*")</p>
 		</div>
+		<pre>
+			<code class="javascript">
+//jquery
+examObj1.find('button').on('click', function(){
+	examObj1.find('.exam_q *').css('background','yellow');
+});
+
+//javascript
+examObj1.getElementsByTagName('button')[0].onclick = function(){
+	var examChild = examObj1.getElementsByClassName('exam_q')[0].querySelectorAll('*');
+	for(var i = 0; i < examChild.length; i++){
+		examChild[i].style.backgroundColor = 'yellow';
+	}
+};
+			</code>
+		</pre>
 		<div class="exam_wrap">
 			<h1>Q. <strong class="point">태그명이 span 인 Elements</strong>를 선택</h1>
 			<div class="exam_q"><!-- 부모 -->
@@ -130,6 +187,23 @@ window.onload = function(){
 			<button type="button">view</button>
 			<p>Tip) $("E")</p>
 		</div>
+		<pre>
+			<code class="javascript">
+//jquery
+examObj2.find('button').on('click', function(){
+	examObj2.find('.exam_q span').css('background','yellow');
+});
+
+//javascript
+examObj2.getElementsByTagName('button')[0].onclick = function(){
+	//var examChild = examObj2.getElementsByClassName('exam_q')[0].getElementsByTagName('span');
+	var examChild = examObj2.getElementsByClassName('exam_q')[0].querySelectorAll('span');
+	for(var i = 0; i < examChild.length; i++){
+		examChild[i].style.backgroundColor = 'yellow';
+	}
+}
+			</code>
+		</pre>
 		<div class="exam_wrap">
 			<h1>Q. <strong class="point">em의 자손</strong>이면서 <strong class="point">태그명이 span 인 Elements</strong>를 선택</h1>
 			<div class="exam_q"><!-- 부모 -->
@@ -141,6 +215,23 @@ window.onload = function(){
 			<button type="button">view</button>
 			<p>Tip) $("E F")</p>
 		</div>
+		<pre>
+			<code class="javascript">
+//jquery
+examObj3.find('button').on('click', function(){
+	examObj3.find('.exam_q em span').css('background','yellow');
+});
+
+//javascript
+examObj3.getElementsByTagName('button')[0].onclick = function(){
+	var examChild = examObj3.getElementsByClassName('exam_q')[0].querySelectorAll('em')[0].querySelectorAll('span');
+	//console.log(examChild);
+	for(var i = 0; i < examChild.length; i++){
+		examChild[i].style.backgroundColor = 'yellow';
+	}
+}
+			</code>
+		</pre>
 		<div class="exam_wrap">
 			<h1>Q. <strong class="point">부모(.exam_q)의 바로 아래 자식</strong>이면서 <strong class="point">태그명이 span 인 Elements</strong>를 선택</h1>
 			<div class="exam_q"><!-- 부모 -->
@@ -152,6 +243,21 @@ window.onload = function(){
 			<button type="button">view</button>
 			<p>Tip) $("E>F")</p>
 		</div>
+		<pre>
+			<code class="javascript">
+//jquery
+examObj4.find('button').on('click', function(){
+	examObj4.find('.exam_q > span').css('background','yellow');
+});
+
+//javascript
+examObj4.getElementsByTagName('button')[0].onclick = function(){
+	var examChild = examObj4.getElementsByClassName('exam_q')[0].querySelector(':scope > span');
+	//console.log(examChild);
+	examChild.style.backgroundColor = 'yellow';
+}
+			</code>
+		</pre>
 		<div class="exam_wrap">
 			<h1>Q. <strong class="point">div의 형제 Elements</strong>이면서, <strong class="point">바로 다음에 나오는 p Elements</strong>를 선택</h1>
 			<div class="exam_q"><!-- 부모 -->
@@ -163,6 +269,22 @@ window.onload = function(){
 			<button type="button">view</button>
 			<p>Tip) $("E+F")</p>
 		</div>
+		<pre>
+			<code class="javascript">
+//jquery
+examObj5.find('button').on('click', function(){
+	examObj5.find('.exam_q div + p').css('background','yellow');
+});
+
+
+//javascript
+examObj5.getElementsByTagName('button')[0].onclick = function(){
+	var examChild = examObj5.getElementsByClassName('exam_q')[0].querySelector('div + p');
+	//console.log(examChild);
+	examChild.style.backgroundColor = 'yellow';
+}
+			</code>
+		</pre>
 		<div class="exam_wrap">
 			<h1>Q. <strong class="point">div의 형제 Elements</strong>이면서, <strong class="point">다음에 나오는 모든 span Elements</strong>를 선택</h1>
 			<div class="exam_q"><!-- 부모 -->
@@ -176,6 +298,23 @@ window.onload = function(){
 			<button type="button">view</button>
 			<p>Tip) $("E~F")</p>
 		</div>
+		<pre>
+			<code class="javascript">
+//jquery
+examObj6.find('button').on('click', function(){
+	examObj6.find('.exam_q div ~ span').css('background','yellow');
+});
+
+//javascript
+examObj6.getElementsByTagName('button')[0].onclick = function(){
+	var examChild = examObj6.getElementsByClassName('exam_q')[0].querySelectorAll('div ~ span');
+	//console.log(examChild);
+	for(var i = 0; i < examChild.length; i++){
+		examChild[i].style.backgroundColor = 'yellow';
+	}
+}
+			</code>
+		</pre>
 		<div class="exam_wrap">
 			<h1>Q. <strong class="point">클래스명이 active인 모든 Elements</strong>를 선택</h1>
 			<div class="exam_q"><!-- 부모 -->
@@ -188,6 +327,24 @@ window.onload = function(){
 			<button type="button">view</button>
 			<p>Tip) $("E.C") E의 생략은 *.C와 동일함.</p>
 		</div>
+		<pre>
+			<code class="javascript">
+//jquery
+examObj7.find('button').on('click', function(){
+	examObj7.find('.exam_q .active').css('background','yellow');
+});
+
+//javascript
+examObj7.getElementsByTagName('button')[0].onclick = function(){
+	//var examChild = examObj7.getElementsByClassName('exam_q')[0].getElementsByClassName('active');
+	var examChild = examObj7.getElementsByClassName('exam_q')[0].querySelectorAll('.active');
+	//console.log(examChild);
+	for(var i = 0; i < examChild.length; i++){
+		examChild[i].style.backgroundColor = 'yellow';
+	}
+}
+			</code>
+		</pre>
 		<div class="exam_wrap">
 			<h1>Q. <strong class="point">아이디명이 active인 Element</strong>를 선택</h1>
 			<div class="exam_q"><!-- 부모 -->
@@ -195,11 +352,28 @@ window.onload = function(){
 				<div class="active">div</div>
 				<p class="active">p</p>
 				<span class="active">span</span>
-				<span id="active">span</span>
+				<span>span</span>
 			</div>
 			<button type="button">view</button>
 			<p>Tip) $("E#I") E의 생략은 *#I와 동일함.</p>
 		</div>
+		<pre>
+			<code class="javascript">
+//jquery
+examObj8.find('button').on('click', function(){
+	examObj8.find('.exam_q #active').css('background','yellow');
+});
+
+//javascript
+examObj8.getElementsByTagName('button')[0].onclick = function(){
+	var examChild = examObj8.getElementsByClassName('exam_q')[0].querySelectorAll('#active');
+	//console.log(examChild);
+	for(var i = 0; i < examChild.length; i++){
+		examChild[i].style.backgroundColor = 'yellow';
+	}
+}
+			</code>
+		</pre>
 	</div>
 	<!-- container [e] -->
 	<hr />

@@ -1,34 +1,89 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
 <title>exam</title>
 <link rel="stylesheet" href="common.css" />
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/github.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+	pre code { font-family: Consolas, Monaco, monospace; }
+</style>
 <script>
 // jQuery code
-// $(function(){
-// 	var examObj1 = $('.exam_wrap:eq(0)');
-// 	examObj1.find('button').on('click', function(){
-// 		examObj1.find('.exam_q *').css('background','yellow');
-// 	});
-// });
+/**/
+$(function(){
+	var examObj1 = $('.exam_wrap:eq(0)'),
+		examObj2 = $('.exam_wrap:eq(1)'),
+		examObj3 = $('.exam_wrap:eq(2)'),
+		examObj4 = $('.exam_wrap:eq(3)'),
+		examObj5 = $('.exam_wrap:eq(4)'),
+		examObj6 = $('.exam_wrap:eq(5)'),
+		examObj7 = $('.exam_wrap:eq(6)'),
+		examObj8 = $('.exam_wrap:eq(7)');
+
+	examObj1.find('button').on('click', function(){
+		//examObj1.find('.exam_q div:eq(0)').css('background', 'yellow');
+		examObj1.find('.exam_q div:first').css('background', 'yellow');
+	});
+
+	examObj2.find('button').on('click', function(){
+		examObj2.find('.exam_q div:last').css('background', 'yellow');
+	});
+
+	examObj3.find('button').on('click', function(){
+		examObj3.find('.exam_q div:first-child').css('background', 'yellow');
+	});
+
+	examObj4.find('button').on('click', function(){
+		examObj4.find('.exam_q div:last-child').css('background', 'yellow');
+	});
+
+	examObj5.find('button').on('click', function(){
+		examObj5.find('.exam_q div:nth-child(2)').css('background', 'yellow');
+	});
+
+	examObj6.find('button').on('click', function(){
+		var aa = examObj6.find('.exam_q div:nth-child(3)').css('background', 'yellow');
+		//var aa = examObj6.find('.exam_q div:nth-of-type(3)').css('background', 'yellow');
+		//var aa = examObj6.find('.exam_q div:eq(2)').css('background', 'yellow');
+		//var aa = examObj6.find('.exam_q div').eq(2).css('background', 'yellow');
+		console.log(aa);
+	});
+
+	examObj7.find('button').on('click', function(){
+		//examObj7.find('.exam_q div:eq(2) ~').css('background', 'yellow');
+		//examObj7.find('.exam_q div:gt(2)').css('background', 'yellow');
+		examObj7.find('.exam_q div:eq(2)').nextAll().css('background', 'yellow');
+	});
+
+	examObj8.find('button').on('click', function(){
+		//examObj8.find('.exam_q div:eq(2)').prevAll().css('background', 'yellow');
+		//examObj8.find('.exam_q div:lt(2)').css('background', 'yellow');
+		examObj8.find('.exam_q div:eq(2)').prevAll().css('background', 'yellow');
+	});
+});
+
 
 // javascript code
+/*
 window.onload = function(){
-	var examObj1 = document.getElementsByClassName('exam_wrap')[0];
-	var examObj2 = document.getElementsByClassName('exam_wrap')[1];
-	var examObj3 = document.getElementsByClassName('exam_wrap')[2];
-	var examObj4 = document.getElementsByClassName('exam_wrap')[3];
-	var examObj5 = document.getElementsByClassName('exam_wrap')[4];
-	var examObj6 = document.getElementsByClassName('exam_wrap')[5];
-	var examObj7 = document.getElementsByClassName('exam_wrap')[6];
-	var examObj8 = document.getElementsByClassName('exam_wrap')[7];
+	var examObj1 = document.getElementsByClassName('exam_wrap')[0],
+		examObj2 = document.getElementsByClassName('exam_wrap')[1],
+		examObj3 = document.getElementsByClassName('exam_wrap')[2],
+		examObj4 = document.getElementsByClassName('exam_wrap')[3],
+		examObj5 = document.getElementsByClassName('exam_wrap')[4],
+		examObj6 = document.getElementsByClassName('exam_wrap')[5],
+		examObj7 = document.getElementsByClassName('exam_wrap')[6],
+		examObj8 = document.getElementsByClassName('exam_wrap')[7];
 
 	examObj1.getElementsByTagName('button')[0].onclick = function(){
-		var examChild = examObj1.getElementsByClassName('exam_q')[0].children[1].firstElementChild;
+		//var examChild = examObj1.getElementsByClassName('exam_q')[0].children[0];
+		var examChild = examObj1.getElementsByClassName('exam_q')[0].firstElementChild;
 		console.log(examChild);
-		//examChild.style.backgroundColor = 'yellow';
+		examChild.style.backgroundColor = 'yellow';
 	};
 
 	examObj2.getElementsByTagName('button')[0].onclick = function(){
@@ -49,7 +104,36 @@ window.onload = function(){
 		examChild.style.backgroundColor = 'yellow';
 	};
 
+	examObj5.getElementsByTagName('button')[0].onclick = function(){
+		var examChild = examObj5.getElementsByClassName('exam_q')[0].children[1];
+		//console.log(examChild);
+		examChild.style.backgroundColor = 'yellow';
+	};
+
+	examObj6.getElementsByTagName('button')[0].onclick = function(){
+		var examChild = examObj6.getElementsByClassName('exam_q')[0].children[2];
+		//console.log(examChild);
+		examChild.style.backgroundColor = 'yellow';
+	};
+
+	examObj7.getElementsByTagName('button')[0].onclick = function(){
+		var examChild = examObj7.querySelectorAll('.exam_q div:nth-child(3) ~ *');
+		//console.log(examChild);
+		for(var i = 0; i < examChild.length; i++){
+			examChild[i].style.backgroundColor = 'yellow';
+		}
+	};
+
+	examObj8.getElementsByTagName('button')[0].onclick = function(){
+		//var examChild = examObj8.getElementsByClassName('exam_q')[0].children[2].previousElementSibling;
+		var examChild = examObj8.querySelectorAll('.exam_q div:nth-child(1), .exam_q div:nth-child(2)');
+		//console.log(examChild);
+		for(var i = 0; i < examChild.length; i++){
+			examChild[i].style.backgroundColor = 'yellow';
+		}
+	};
 };
+*/
 </script>
 </head>
 <body>
@@ -64,7 +148,7 @@ window.onload = function(){
 	<div id="container">
 		<div class="exam_wrap">
 			<h1>Q. <strong class="point">태그 순서가 첫번째인 모든 Elements</strong>를 선택</h1>
-			<div class="exam_q"><!-- 부모 -->
+			<div class="exam_q">
 				<div>1<em>em</em></div>
 				<div>2<em>em</em></div>
 				<div>3<em>em</em></div>
@@ -72,6 +156,15 @@ window.onload = function(){
 			<button type="button">view</button>
 			<p>Tip) :first / .first()</p>
 		</div>
+		<pre>
+			<code class="javascript">
+//jquery
+
+
+//javascript
+
+			</code>
+		</pre>
 		<div class="exam_wrap">
 			<h1>Q. <strong class="point">태그 순서가 마지막인 모든 Elements</strong>를 선택</h1>
 			<div class="exam_q"><!-- 부모 -->
@@ -82,6 +175,15 @@ window.onload = function(){
 			<button type="button">view</button>
 			<p>Tip) :last / .last()</p>
 		</div>
+		<pre>
+			<code class="javascript">
+//jquery
+
+
+//javascript
+
+			</code>
+		</pre>
 		<div class="exam_wrap">
 			<h1>Q. <strong class="point">첫번째 자식 Element</strong>를 선택</h1>
 			<div class="exam_q"><!-- 부모 -->
@@ -92,6 +194,15 @@ window.onload = function(){
 			<button type="button">view</button>
 			<p>Tip) :first-child</p>
 		</div>
+		<pre>
+			<code class="javascript">
+//jquery
+
+
+//javascript
+
+			</code>
+		</pre>
 		<div class="exam_wrap">
 			<h1>Q. <strong class="point">마지막 자식 Element</strong>를 선택</h1>
 			<div class="exam_q"><!-- 부모 -->
@@ -102,6 +213,15 @@ window.onload = function(){
 			<button type="button">view</button>
 			<p>Tip) :last-child</p>
 		</div>
+		<pre>
+			<code class="javascript">
+//jquery
+
+
+//javascript
+
+			</code>
+		</pre>
 		<div class="exam_wrap">
 			<h1>Q. <strong class="point">태그 순서가 2번째인 자식 Element</strong>를 선택</h1>
 			<div class="exam_q"><!-- 부모 -->
@@ -112,6 +232,15 @@ window.onload = function(){
 			<button type="button">view</button>
 			<p>Tip) :nth-child(n)</p>
 		</div>
+		<pre>
+			<code class="javascript">
+//jquery
+
+
+//javascript
+
+			</code>
+		</pre>
 		<div class="exam_wrap">
 			<h1>Q. <strong class="point">태그 순서가 3번째인 Element</strong>를 선택</h1>
 			<div class="exam_q"><!-- 부모 -->
@@ -125,6 +254,15 @@ window.onload = function(){
 			<button type="button">view</button>
 			<p>Tip) :eq(n) / .eq(n)</p>
 		</div>
+		<pre>
+			<code class="javascript">
+//jquery
+
+
+//javascript
+
+			</code>
+		</pre>
 		<div class="exam_wrap">
 			<h1>Q. <strong class="point">태그 순서가 3번째인 Element 이후의 Elements</strong>를 선택</h1>
 			<div class="exam_q"><!-- 부모 -->
@@ -138,6 +276,15 @@ window.onload = function(){
 			<button type="button">view</button>
 			<p>Tip) :gt(n) / .nextAll()</p>
 		</div>
+		<pre>
+			<code class="javascript">
+//jquery
+
+
+//javascript
+
+			</code>
+		</pre>
 		<div class="exam_wrap">
 			<h1>Q. <strong class="point">태그 순서가 3번째인 Element 이전의 Elements</strong>를 선택</h1>
 			<div class="exam_q"><!-- 부모 -->
@@ -151,6 +298,15 @@ window.onload = function(){
 			<button type="button">view</button>
 			<p>Tip) :lt(n) / .prevAll()</p>
 		</div>
+		<pre>
+			<code class="javascript">
+//jquery
+
+
+//javascript
+
+			</code>
+		</pre>
 	</div>
 	<!-- container [e] -->
 	<hr />
