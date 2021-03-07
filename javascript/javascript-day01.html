@@ -4,10 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>javascript-day01</title>
+    <title>[javascript] 변수, 데이터타입</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/github.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        #container { max-width: 1000px; margin: 100px auto; }
+        section pre code { white-space: pre-line; }
+    </style>
 </head>
 <body>
+    <div id="container">
+        <h1>[변수, 데이터타입]</h1>
+        <section>
+            <h2>객체</h2>
+            <pre>
+                <code>
+                a.prop = 'exists';
+
+                *같은 형식*
+                a['prop'] = 'exists';
+                a = {
+                    prop : 'exists'
+                }
+
+                console.log(a); // {prop: "exists"}
+                </code>
+            </pre>
+        </section>
+        <section>
+            <h2>정규식</h2>
+            <p> gi는 대소문자 구분을 허용하지 않고 모든 패턴을 검색하는것</p>
+        </section>
+    </div>
     <script>
+        /*수업 실습*/
         var intNum = 34;
         var singleStr = 'volvo';
         var bollVar = true;
