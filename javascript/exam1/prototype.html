@@ -283,7 +283,7 @@
 						test2 = test.match(regExp); 
 						//['love', 'love', 'love']  test2변수에 배열로 모든 love 텍스트가 저장됨
 
-						if (!location.href.match('/en')) { //현재 url 주소에 '/en'이 포함되어 있는지 match() 함수를 사용하여 확인
+						if (location.href.match('/en')) { //현재 url 주소에 '/en'이 포함되어 있는지 match() 함수를 사용하여 확인
 							console.log('English page!'); //현재 접속자 url에 /en이 포함되어 있다면 'English page!'
 						} else {
 							console.log('Korean page!'); //아니면 'Korean page!'
@@ -291,13 +291,6 @@
 					</code>
 				</pre>
 			</li>
-			<script>
-				// if (!location.href.match('/en')) { 
-				// 	console.log('English page!'); 
-				// } else {
-				// 	console.log('Korean page!');
-				// }
-			</script>
 			<li class="prototype">
 				<strong>String.trim()</strong>
 				<p>문자열 양 끝의 공백을 제거</p>
