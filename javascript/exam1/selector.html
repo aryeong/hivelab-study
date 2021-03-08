@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>exam</title>
+<title>selector1</title>
 <link rel="stylesheet" href="common.css" />
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/github.min.css">
@@ -21,6 +21,7 @@
 // });
 
 //jQuery code
+/**/
 $(function(){
 	var examObj1 = $('.exam_wrap:eq(0)'),
 		examObj2 = $('.exam_wrap:eq(1)'),
@@ -92,17 +93,22 @@ window.onload = function(){
 	}
 
 	examObj3.getElementsByTagName('button')[0].onclick = function(){
-		var examChild = examObj3.getElementsByClassName('exam_q')[0].querySelectorAll('em')[0].querySelectorAll('span');
-		//console.log(examChild);
+		var examChild = examObj3.querySelectorAll('.exam_q em > span');
+		console.log(examChild);
 		for(var i = 0; i < examChild.length; i++){
 			examChild[i].style.backgroundColor = 'yellow';
 		}
 	}
 
 	examObj4.getElementsByTagName('button')[0].onclick = function(){
-		var examChild = examObj4.getElementsByClassName('exam_q')[0].querySelector(':scope > span');
-		//console.log(examChild);
-		examChild.style.backgroundColor = 'yellow';
+		var examChild = examObj4.querySelectorAll('.exam_q > span');
+		for(var i = 0; i < examChild.length; i++){
+			examChild[i].style.backgroundColor = 'yellow';
+		}
+
+		// var examChild = examObj4.getElementsByClassName('exam_q')[0].querySelector(':scope > span');
+		// console.log(examChild);
+		// examChild.style.backgroundColor = 'yellow';
 	}
 
 	examObj5.getElementsByTagName('button')[0].onclick = function(){
@@ -224,8 +230,7 @@ examObj3.find('button').on('click', function(){
 
 //javascript
 examObj3.getElementsByTagName('button')[0].onclick = function(){
-	var examChild = examObj3.getElementsByClassName('exam_q')[0].querySelectorAll('em')[0].querySelectorAll('span');
-	//console.log(examChild);
+	var examChild = examObj3.querySelectorAll('.exam_q em > span');
 	for(var i = 0; i < examChild.length; i++){
 		examChild[i].style.backgroundColor = 'yellow';
 	}
@@ -252,9 +257,14 @@ examObj4.find('button').on('click', function(){
 
 //javascript
 examObj4.getElementsByTagName('button')[0].onclick = function(){
+	var examChild = examObj4.querySelectorAll('.exam_q > span');
+	for(var i = 0; i < examChild.length; i++){
+		examChild[i].style.backgroundColor = 'yellow';
+	}
+
 	var examChild = examObj4.getElementsByClassName('exam_q')[0].querySelector(':scope > span');
-	//console.log(examChild);
 	examChild.style.backgroundColor = 'yellow';
+	// :scope 가상 클래스는 베이스 엘리먼트의 자손에 일치하는 셀렉터로만 제한
 }
 			</code>
 		</pre>
@@ -280,7 +290,6 @@ examObj5.find('button').on('click', function(){
 //javascript
 examObj5.getElementsByTagName('button')[0].onclick = function(){
 	var examChild = examObj5.getElementsByClassName('exam_q')[0].querySelector('div + p');
-	//console.log(examChild);
 	examChild.style.backgroundColor = 'yellow';
 }
 			</code>
@@ -308,7 +317,6 @@ examObj6.find('button').on('click', function(){
 //javascript
 examObj6.getElementsByTagName('button')[0].onclick = function(){
 	var examChild = examObj6.getElementsByClassName('exam_q')[0].querySelectorAll('div ~ span');
-	//console.log(examChild);
 	for(var i = 0; i < examChild.length; i++){
 		examChild[i].style.backgroundColor = 'yellow';
 	}
@@ -338,7 +346,6 @@ examObj7.find('button').on('click', function(){
 examObj7.getElementsByTagName('button')[0].onclick = function(){
 	//var examChild = examObj7.getElementsByClassName('exam_q')[0].getElementsByClassName('active');
 	var examChild = examObj7.getElementsByClassName('exam_q')[0].querySelectorAll('.active');
-	//console.log(examChild);
 	for(var i = 0; i < examChild.length; i++){
 		examChild[i].style.backgroundColor = 'yellow';
 	}
@@ -367,7 +374,6 @@ examObj8.find('button').on('click', function(){
 //javascript
 examObj8.getElementsByTagName('button')[0].onclick = function(){
 	var examChild = examObj8.getElementsByClassName('exam_q')[0].querySelectorAll('#active');
-	//console.log(examChild);
 	for(var i = 0; i < examChild.length; i++){
 		examChild[i].style.backgroundColor = 'yellow';
 	}

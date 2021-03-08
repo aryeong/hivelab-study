@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>exam</title>
+<title>selector2</title>
 <link rel="stylesheet" href="common.css" />
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/github.min.css">
@@ -13,6 +13,7 @@
 </style>
 <script>
 // jQuery code
+/**/
 $(function(){
 	var examObj1 = $('.exam_wrap:eq(0)'),
 		examObj2 = $('.exam_wrap:eq(1)'),
@@ -24,7 +25,6 @@ $(function(){
 		examObj8 = $('.exam_wrap:eq(7)');
 
 	examObj1.find('button').on('click', function(){
-		//examObj1.find('.exam_q div:eq(0)').css('background', 'yellow');
 		examObj1.find('.exam_q div:first').css('background', 'yellow');
 	});
 
@@ -33,23 +33,22 @@ $(function(){
 	});
 
 	examObj3.find('button').on('click', function(){
-		examObj3.find('.exam_q div:first-child').css('background', 'yellow');
+		examObj3.find('.exam_q div em:first-child').css('background', 'yellow');
 	});
 
 	examObj4.find('button').on('click', function(){
-		examObj4.find('.exam_q div:last-child').css('background', 'yellow');
+		examObj4.find('.exam_q div em:last-child').css('background', 'yellow');
 	});
 
 	examObj5.find('button').on('click', function(){
-		examObj5.find('.exam_q div:nth-child(2)').css('background', 'yellow');
+		examObj5.find('.exam_q > div:nth-child(2)').css('background', 'yellow');
 	});
 
 	examObj6.find('button').on('click', function(){
-		var aa = examObj6.find('.exam_q div:nth-child(3)').css('background', 'yellow');
-		//var aa = examObj6.find('.exam_q div:nth-of-type(3)').css('background', 'yellow');
-		//var aa = examObj6.find('.exam_q div:eq(2)').css('background', 'yellow');
-		//var aa = examObj6.find('.exam_q div').eq(2).css('background', 'yellow');
-		console.log(aa);
+		examObj6.find('.exam_q div:nth-child(3)').css('background', 'yellow');
+		//examObj6.find('.exam_q div:nth-of-type(3)').css('background', 'yellow');
+		//examObj6.find('.exam_q div:eq(2)').css('background', 'yellow');
+		//examObj6.find('.exam_q div').eq(2).css('background', 'yellow');
 	});
 
 	examObj7.find('button').on('click', function(){
@@ -59,12 +58,10 @@ $(function(){
 	});
 
 	examObj8.find('button').on('click', function(){
-		//examObj8.find('.exam_q div:eq(2)').prevAll().css('background', 'yellow');
 		//examObj8.find('.exam_q div:lt(2)').css('background', 'yellow');
 		examObj8.find('.exam_q div:eq(2)').prevAll().css('background', 'yellow');
 	});
 });
-
 
 // javascript code
 /*
@@ -79,9 +76,8 @@ window.onload = function(){
 		examObj8 = document.getElementsByClassName('exam_wrap')[7];
 
 	examObj1.getElementsByTagName('button')[0].onclick = function(){
-		//var examChild = examObj1.getElementsByClassName('exam_q')[0].children[0];
 		var examChild = examObj1.getElementsByClassName('exam_q')[0].firstElementChild;
-		console.log(examChild);
+		//console.log(examChild);
 		examChild.style.backgroundColor = 'yellow';
 	};
 
@@ -92,15 +88,19 @@ window.onload = function(){
 	};
 
 	examObj3.getElementsByTagName('button')[0].onclick = function(){
-		var examChild = examObj3.getElementsByClassName('exam_q')[0].firstElementChild;
+		var examChild = examObj3.querySelectorAll('.exam_q div');
 		//console.log(examChild);
-		examChild.style.backgroundColor = 'yellow';
+		for(var i = 0; i < examChild.length; i++){
+			examChild[i].firstElementChild.style.backgroundColor = 'yellow';
+		}
 	};
 
 	examObj4.getElementsByTagName('button')[0].onclick = function(){
-		var examChild = examObj4.getElementsByClassName('exam_q')[0].lastElementChild;
+		var examChild = examObj4.querySelectorAll('.exam_q div');
 		//console.log(examChild);
-		examChild.style.backgroundColor = 'yellow';
+		for(var i = 0; i < examChild.length; i++){
+			examChild[i].lastElementChild.style.backgroundColor = 'yellow';
+		}
 	};
 
 	examObj5.getElementsByTagName('button')[0].onclick = function(){
@@ -124,15 +124,13 @@ window.onload = function(){
 	};
 
 	examObj8.getElementsByTagName('button')[0].onclick = function(){
-		//var examChild = examObj8.getElementsByClassName('exam_q')[0].children[2].previousElementSibling;
 		var examChild = examObj8.querySelectorAll('.exam_q div:nth-child(1), .exam_q div:nth-child(2)');
 		//console.log(examChild);
 		for(var i = 0; i < examChild.length; i++){
 			examChild[i].style.backgroundColor = 'yellow';
 		}
 	};
-};
-*/
+};*/
 </script>
 </head>
 <body>
@@ -158,10 +156,16 @@ window.onload = function(){
 		<pre>
 			<code class="javascript">
 //jquery
-
+examObj1.find('button').on('click', function(){
+	examObj1.find('.exam_q div:first').css('background', 'yellow');
+	//examObj1.find('.exam_q div:eq(0)').css('background', 'yellow');
+});
 
 //javascript
-
+examObj1.getElementsByTagName('button')[0].onclick = function(){
+	var examChild = examObj1.getElementsByClassName('exam_q')[0].firstElementChild;
+	examChild.style.backgroundColor = 'yellow';
+};
 			</code>
 		</pre>
 		<div class="exam_wrap">
@@ -177,18 +181,23 @@ window.onload = function(){
 		<pre>
 			<code class="javascript">
 //jquery
-
+examObj2.find('button').on('click', function(){
+	examObj2.find('.exam_q div:last').css('background', 'yellow');
+});
 
 //javascript
-
+examObj2.getElementsByTagName('button')[0].onclick = function(){
+	var examChild = examObj2.getElementsByClassName('exam_q')[0].lastElementChild;
+	examChild.style.backgroundColor = 'yellow';
+};
 			</code>
 		</pre>
 		<div class="exam_wrap">
 			<h1>Q. <strong class="point">첫번째 자식 Element</strong>를 선택</h1>
 			<div class="exam_q"><!-- 부모 -->
-				<div>1<em>em</em></div>
-				<div>2<em>em</em></div>
-				<div>3<em>em</em></div>
+				<div>1<em>em</em><em>em</em><em>em</em></div>
+				<div>2<em>em</em><em>em</em><em>em</em></div>
+				<div>3<em>em</em><em>em</em><em>em</em></div>
 			</div>
 			<button type="button">view</button>
 			<p>Tip) :first-child</p>
@@ -196,18 +205,25 @@ window.onload = function(){
 		<pre>
 			<code class="javascript">
 //jquery
-
+examObj3.find('button').on('click', function(){
+	examObj3.find('.exam_q div em:first-child').css('background', 'yellow');
+});
 
 //javascript
-
+examObj3.getElementsByTagName('button')[0].onclick = function(){
+	var examChild = examObj3.querySelectorAll('.exam_q div');
+	for(var i = 0; i < examChild.length; i++){
+		examChild[i].firstElementChild.style.backgroundColor = 'yellow';
+	}
+};
 			</code>
 		</pre>
 		<div class="exam_wrap">
 			<h1>Q. <strong class="point">마지막 자식 Element</strong>를 선택</h1>
 			<div class="exam_q"><!-- 부모 -->
-				<div>1<em>em</em></div>
-				<div>2<em>em</em></div>
-				<div>3<em>em</em></div>
+				<div>1<em>em</em><em>em</em><em>em</em></div>
+				<div>2<em>em</em><em>em</em><em>em</em></div>
+				<div>3<em>em</em><em>em</em><em>em</em></div>
 			</div>
 			<button type="button">view</button>
 			<p>Tip) :last-child</p>
@@ -215,10 +231,17 @@ window.onload = function(){
 		<pre>
 			<code class="javascript">
 //jquery
-
+examObj4.find('button').on('click', function(){
+	examObj4.find('.exam_q div em:last-child').css('background', 'yellow');
+});
 
 //javascript
-
+examObj4.getElementsByTagName('button')[0].onclick = function(){
+	var examChild = examObj4.querySelectorAll('.exam_q div');
+	for(var i = 0; i < examChild.length; i++){
+		examChild[i].lastElementChild.style.backgroundColor = 'yellow';
+	}
+};
 			</code>
 		</pre>
 		<div class="exam_wrap">
@@ -234,10 +257,15 @@ window.onload = function(){
 		<pre>
 			<code class="javascript">
 //jquery
-
+examObj5.find('button').on('click', function(){
+	examObj5.find('.exam_q > div:nth-child(2)').css('background', 'yellow');
+});
 
 //javascript
-
+examObj5.getElementsByTagName('button')[0].onclick = function(){
+	var examChild = examObj5.getElementsByClassName('exam_q')[0].children[1];
+	examChild.style.backgroundColor = 'yellow';
+};
 			</code>
 		</pre>
 		<div class="exam_wrap">
@@ -256,10 +284,18 @@ window.onload = function(){
 		<pre>
 			<code class="javascript">
 //jquery
-
+examObj6.find('button').on('click', function(){
+	examObj6.find('.exam_q div:nth-child(3)').css('background', 'yellow');
+	//examObj6.find('.exam_q div:nth-of-type(3)').css('background', 'yellow');
+	//examObj6.find('.exam_q div:eq(2)').css('background', 'yellow');
+	//examObj6.find('.exam_q div').eq(2).css('background', 'yellow');
+});
 
 //javascript
-
+examObj6.getElementsByTagName('button')[0].onclick = function(){
+	var examChild = examObj6.getElementsByClassName('exam_q')[0].children[2];
+	examChild.style.backgroundColor = 'yellow';
+};
 			</code>
 		</pre>
 		<div class="exam_wrap">
@@ -278,10 +314,19 @@ window.onload = function(){
 		<pre>
 			<code class="javascript">
 //jquery
-
+examObj7.find('button').on('click', function(){
+	//examObj7.find('.exam_q div:eq(2) ~').css('background', 'yellow');
+	//examObj7.find('.exam_q div:gt(2)').css('background', 'yellow');
+	examObj7.find('.exam_q div:eq(2)').nextAll().css('background', 'yellow');
+});
 
 //javascript
-
+examObj7.getElementsByTagName('button')[0].onclick = function(){
+	var examChild = examObj7.querySelectorAll('.exam_q div:nth-child(3) ~ *');
+	for(var i = 0; i < examChild.length; i++){
+		examChild[i].style.backgroundColor = 'yellow';
+	}
+};
 			</code>
 		</pre>
 		<div class="exam_wrap">
@@ -300,10 +345,18 @@ window.onload = function(){
 		<pre>
 			<code class="javascript">
 //jquery
-
+examObj8.find('button').on('click', function(){
+	//examObj8.find('.exam_q div:lt(2)').css('background', 'yellow');
+	examObj8.find('.exam_q div:eq(2)').prevAll().css('background', 'yellow');
+});
 
 //javascript
-
+examObj8.getElementsByTagName('button')[0].onclick = function(){
+	var examChild = examObj8.querySelectorAll('.exam_q div:nth-child(1), .exam_q div:nth-child(2)');
+	for(var i = 0; i < examChild.length; i++){
+		examChild[i].style.backgroundColor = 'yellow';
+	}
+};
 			</code>
 		</pre>
 	</div>
