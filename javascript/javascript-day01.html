@@ -37,47 +37,50 @@
             <ul>
                 <li>
                     <strong>getElementsById</strong>
-                    <p></p>
+                    <p>ID 값을 가져오는데 사용</p>
                 </li>
                 <li>
                     <strong>getElementsByClassName</strong>
-                    <p></p>
+                    <p>NAME 값을 가져오는데 사용</p>
                 </li>
                 <li>
                     <strong>getElementsByTagName</strong>
-                    <p></p>
+                    <p>태그(Tag)값을 가져오는데 사용</p>
                 </li>
                 <li>
                     <strong>querySelectorAll</strong>
-                    <p></p>
+                    <p>타겟을 배열형식으로 모두 받아옴</p>
                 </li>
                 <li>
                     <strong>querySelector</strong>
-                    <p></p>
+                    <p>오직 첫번째 요소만</p>
                 </li>
                 <li>
                     <strong>parentElement</strong>
-                    <p></p>
+                    <p>부모 요소에 접근</p>
                 </li>
                 <li>
                     <strong>parentNode</strong>
-                    <p></p>
+                    <p>부모 노드에 접근, 비 요소 노드를 포함</p>
                 </li>
                 <li>
                     <strong>children</strong>
-                    <p></p>
+                    <p>자식 요소에 접근</p>
                 </li>
                 <li>
                     <strong>childNodes</strong>
-                    <p></p>
+                    <p>자식 노드에 접근, 비 요소 노드를 포함</p>
                 </li>
                 <li>
                     <strong>firstChild</strong>
-                    <p>공백도 자식</p>
+                    <p>공백도 자식.. first childe node를 element node 또는 text node, comment node로 반환</p>
                 </li>
                 <li>
                     <strong>firstElementChild</strong>
-                    <p></p>
+                    <p>
+                        first child node를 element node로만 반환을 한다.(text와 comment nodes를 무시)<br>
+                        textContent에 접근하거나 style을 바꾼다든지 등등 HTML code에 반영을 위한 접근이 필요하다면 firstElementChild을 쓴다.
+                    </p>
                 </li>
                 <li>
                     <strong>lastChild</strong>
@@ -93,19 +96,37 @@
                 </li>
                 <li>
                     <strong>previousElementSibling</strong>
-                    <p></p>
+                    <p>같은 깊이에 있는 자매 노드 중 본인 노드 기준으로 이전 자매 노드에 대한 접근</p>
                 </li>
                 <li>
                     <strong>nextSibling</strong>
-                    <p></p>
+                    <p>본인 노드 기준으로 다음 자매 노드에 대한 접근</p>
                 </li>
                 <li>
                     <strong>nextElementSibling</strong>
-                    <p></p>
+                    <p>본인 노드 기준으로 다음 자매 노드에 대한 접근, HTML code에 반영을 위한 접근이 필요할 때에는 nextElementChild를 쓴다.</p>
                 </li>
                 <li>
                     <strong>creatElement</strong>
-                    <p></p>
+                    <p>지정한 tagName의 HTML 요소를 만들어 반환</p>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <strong>nth-child(n)</strong>
+                    <p>부모 엘리먼트의 모든 자식 엘리먼트중 n번째</p>
+                </li>
+                <li>
+                    <strong>nth-of-type(n)</strong>
+                    <p>부모 엘리먼트의 특정 자식 엘리먼트중 n번째</p>
+                </li>
+                <li>
+                    <strong>first</strong>
+                    <p>결과셋을 기준으로 한 위치</p>
+                </li>
+                <li>
+                    <strong>first-child</strong>
+                    <p>부모와 형제간의 관계에 기반한 위치</p>
                 </li>
             </ul>
         </section>
